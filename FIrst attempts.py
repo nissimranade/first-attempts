@@ -16,16 +16,7 @@ def insertionsort(I):
             i = i-1
             I[i+1] = k
 
-#start = timeit.default_timer()    
-#insertionsort(I)
-#stop = timeit.default_timer()
-#print "Insertion sort"
-#print I
-
-#print stop - start
-
-#merge sort algorithm
-
+#merge sort
 
 def merge(A,p,q,r):
  
@@ -72,15 +63,7 @@ def merge1(A, r1, r2):
        merge1(A,r,r2)
        merge(A,r1,r,r2)
       
-#start = timeit.default_timer()
 
-#mergesort(M,0,len(M))
-
-#stop = timeit.default_timer()
-
-#print "Merge sort"
-#print M
-#print stop - start
 
 def mergesort(M):
     merge1(M,0,len(M))
@@ -100,29 +83,18 @@ def bubblesort(B):
                 B[j-1] = b
             j = j-1
 
+#python sort
+
 def pysort(P):
     P.sort()
 
-#start = timeit.default_timer()    
-#bubblesort(I)                
-#stop = timeit.default_timer()
 
-#print "Bubble sort"        
-#print B
-#print stop - start
-
-#start = timeit.default_timer()
-#P.sort()
-#stop = timeit.default_timer()
-
-#print "Python sort"
-#print P
-#print stop - start
 
 
 
 def Timer(function,l):
     L=[]
+    random.seed(0)
     for i in range(l):
         L.append(i)
         L[i] = random.randint(-100,100)
@@ -151,3 +123,42 @@ Timecompare(mergesort, pysort, 7000)
 Timecompare(mergesort, pysort, 8000)
 Timecompare(mergesort, pysort, 9000)
 Timecompare(mergesort, pysort, 10000)
+
+def Listcopy(L):
+    K=[]
+    for i in range(len(L)):
+        K.append(i)
+        K[i]= L[i].copy()
+    return K
+    
+def worsttimecompare(f1,f2,l):
+    L=[]
+    random.seed(0)
+    
+    K=copy.copy(L)
+    print " "
+    print "worst time compare: length"
+    print l
+    start = timeit.default_timer()
+    f1(L)
+    stop =  timeit.default_timer()
+    print (f1)
+    print stop - start
+    start = timeit.default_timer()
+    f2(K)
+    stop =  timeit.default_timer()
+    print (f2)
+    print stop - start
+    
+    
+worsttimecompare(mergesort, pysort, 1000) 
+worsttimecompare(mergesort, pysort, 2000)
+worsttimecompare(mergesort, pysort, 3000)
+worsttimecompare(mergesort, pysort, 4000)
+worsttimecompare(mergesort, pysort, 5000)
+worsttimecompare(mergesort, pysort, 6000)
+worsttimecompare(mergesort, pysort, 7000)
+worsttimecompare(mergesort, pysort, 8000)
+worsttimecompare(mergesort, pysort, 9000)
+worsttimecompare(mergesort, pysort, 10000)
+    

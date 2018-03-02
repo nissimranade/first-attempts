@@ -64,12 +64,12 @@ def merge(A,p,q,r):
             k = k+1
     
     
-def mergesort(A, r1, r2):
+def merge1(A, r1, r2):
    
     if r1<(r2-1):
        r = int(math.floor((r1+r2)/2))
-       mergesort(A,r1,r)
-       mergesort(A,r,r2)
+       merge1(A,r1,r)
+       merge1(A,r,r2)
        merge(A,r1,r,r2)
       
 #start = timeit.default_timer()
@@ -82,6 +82,8 @@ def mergesort(A, r1, r2):
 #print M
 #print stop - start
 
+def mergesort(M):
+    merge1(M,0,len(M))
 
 
 #bubblesort
@@ -98,8 +100,8 @@ def bubblesort(B):
                 B[j-1] = b
             j = j-1
 
-def merge1(M):
-    mergesort(M,0,len(M))
+def pysort(P):
+    P.sort()
 
 #start = timeit.default_timer()    
 #bubblesort(I)                
@@ -117,6 +119,8 @@ def merge1(M):
 #print P
 #print stop - start
 
+
+
 def Timer(function,l):
     L=[]
     for i in range(l):
@@ -126,7 +130,7 @@ def Timer(function,l):
     function(L)
     stop =  timeit.default_timer()
     print stop-start
- 
+
 def Timecompare(f1,f2,l):
     print " "
     print "length"
@@ -147,8 +151,3 @@ Timecompare(mergesort, pysort, 7000)
 Timecompare(mergesort, pysort, 8000)
 Timecompare(mergesort, pysort, 9000)
 Timecompare(mergesort, pysort, 10000)
-
-
-
-
-

@@ -124,17 +124,13 @@ Timecompare(mergesort, pysort, 8000)
 Timecompare(mergesort, pysort, 9000)
 Timecompare(mergesort, pysort, 10000)
 
-def Listcopy(L):
-    K=[]
-    for i in range(len(L)):
-        K.append(i)
-        K[i]= L[i].copy()
-    return K
+
     
 def worsttimecompare(f1,f2,l):
     L=[]
-    random.seed(0)
-    
+    for i in range(l):
+        L.append(i)
+        L[i] = l-i
     K=copy.copy(L)
     print " "
     print "worst time compare: length"

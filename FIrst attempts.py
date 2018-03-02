@@ -127,8 +127,26 @@ def Timer(function,l):
     stop =  timeit.default_timer()
     print stop-start
  
+def Timecompare(f1,f2,l):
+    print " "
+    print "length"
+    print l
+    print (f1) 
+    Timer(f1,l)
+    print (f2) 
+    Timer(f2,l)
 
-Timer(merge1, 100)
+
+Timecompare(mergesort, pysort, 1000) 
+Timecompare(mergesort, pysort, 2000)
+Timecompare(mergesort, pysort, 3000)
+Timecompare(mergesort, pysort, 4000)
+Timecompare(mergesort, pysort, 5000)
+Timecompare(mergesort, pysort, 6000)
+Timecompare(mergesort, pysort, 7000)
+Timecompare(mergesort, pysort, 8000)
+Timecompare(mergesort, pysort, 9000)
+Timecompare(mergesort, pysort, 10000)
 
 
 

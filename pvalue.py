@@ -6,22 +6,32 @@ Created on Sun Mar 18 17:10:39 2018
 @author: Nissim
 """
 
+import matplotlib.pyplot as plt
 import random
+
 
 def f(): 
     return abs(random.normalvariate(.2, 7) ** (int(3 * random.random())))
 
-print "Experiment 1"
+L = []
+for i in range(10000):
+    L.append(i)
+    L[i] = f()
 
-for i in range(1,20):
-    print f()
+plt.xlim([min(L)-5, max(L)+5])
+plt.hist(L, bins=100, alpha=1)
+plt.show()
 
-print "Experiment 2" 
+K = []
 
-for j in range(1, 20):
-    x = f()
-    for i in range (1,19):
+for j in range(10000):
+    K.append(j)
+    K[j] = f()
+    for i in range (19):
         y = f()
-        if y > x: 
-            x = y    
-            print y
+        if y > K[j]: 
+            K[j] = y    
+    
+plt.xlim([min(K)-5, max(L)+5])
+plt.hist(K, bins=100, alpha=1)
+plt.show()
